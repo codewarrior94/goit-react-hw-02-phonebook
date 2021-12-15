@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { nanoid } from 'nanoid';
 
 const INITIAL_STATE = {
   name: '',
@@ -10,6 +11,7 @@ class Form extends Component {
 
   handleInputChange = e => {
     const { name, value } = e.currentTarget;
+
     this.setState({ [name]: value });
   };
 

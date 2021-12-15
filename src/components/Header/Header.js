@@ -1,0 +1,7 @@
+// import css from './Header.module.css';
+
+const Header = ({ name }) => {
+  return <h1>{name}</h1>;
+};
+
+export default Header;
