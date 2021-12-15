@@ -1,17 +1,25 @@
-// import css from './Contacts.module.css'
 import { nanoid } from 'nanoid';
 
-const Contacts = ({ contactList }) => {
+import ContactsItem from './ContactsItem';
+
+// import css from './Contacts.module.css'
+
+const Contacts = ({ contactList, deleteContact }) => {
   return (
-    <ul>
-      {contactList.map(item => {
-        return (
-          <li key={nanoid()}>
-            {item.name}: {item.number}
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <ul>
+        {contactList.map(contact => {
+          return (
+            <ContactsItem
+              key={contact.id}
+              name={contact.name}
+              number={contact.number}
+              deleteContact={() => deleteContact(contact.id)}
+            />
+          );
+        })}
+      </ul>
+    </>
   );
 };
 
