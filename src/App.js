@@ -51,8 +51,8 @@ class App extends Component {
 
   filterContact = () => {
     const { contacts, filter } = this.state;
-
-    return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
+    const normFilter = filter.toLowerCase();
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normFilter));
   };
 
   deleteContact = id => {
@@ -70,7 +70,6 @@ class App extends Component {
         <Form onSubmit={this.onFormSubmit} />
 
         <Header name="Contacts" />
-
         <p>Find contacts by name:</p>
         <input type="text" onChange={this.handleInputChange} name="filter" value={filter} />
 

@@ -1,13 +1,12 @@
-import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 import ContactsItem from './ContactsItem';
-
-// import css from './Contacts.module.css'
+import css from './Contacts.module.css';
 
 const Contacts = ({ contactList, deleteContact }) => {
   return (
     <>
-      <ul>
+      <ul className={css.list}>
         {contactList.map(contact => {
           return (
             <ContactsItem
@@ -24,3 +23,14 @@ const Contacts = ({ contactList, deleteContact }) => {
 };
 
 export default Contacts;
+
+Contacts.propTypes = {
+  contactList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    }),
+  ),
+  deleteContact: PropTypes.func.isRequired,
+};
